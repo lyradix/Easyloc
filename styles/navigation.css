@@ -1,0 +1,12 @@
+/* Styles pour une barre de navigation */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 20px; /* Espacement entre les liens */
+}
+
+.nav-container a {
+    display: inline-block;
+    margin: 0; /* Réinitialiser les marges automatiques pour les liens dans la nav */
+}
