@@ -22,17 +22,17 @@ class BillingRepository
     $stmt = $this->conn->prepare($sql);
     $result = $stmt->executeQuery([$contract])
 
-    $billings = [];
+    $billing = [];
     while($row = $result->fetchAssociativ()) {
         $billing[] = new Billing($row)
         } 
 
-      return $billings;
+      return $billing;
 
     }
 
      /**
-     * Checks if a contract is fully paid by comparing sum of billings
+     * Checks if a contract is fully paid by comparing sum of billing
      */
     public function isContractFullyPaid(int $contractId, float, $expectedAmount): bool
     {
