@@ -44,4 +44,8 @@ class BillingRepository
         return isset($row['total']) && (float)$row['total'] >= $expectedAmount;
     }
 
+
+//     Calculer les montants dus
+
+// Regrouper les paiements par client ou par période
 }

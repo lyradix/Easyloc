@@ -16,5 +16,17 @@ class contractRepository;
     $sql = 
     $smtp = 
     $result = 
+
+
+    // Rechercher les contrats en cours ou en retard
+    // Lister les contrats d’un client
+    // Vérifier si un contrat est intégralement payé
+
+    public function getLateContracts(): array
+    public function getContractsByCustomer($customerId): array
+    public function isContractFullyPaid($contractId): bool
 }
+
+
+
 

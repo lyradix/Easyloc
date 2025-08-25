@@ -137,7 +137,7 @@ instance MongoDB.
 
 Extensions possibles
 ✓ Gestion de differents types de SGBD
-- La directrice de EasyLoc’ de cide d’utiliser une base PostgreSQL a cote de sa base SQL
+- La directrice de EasyLoc’ decide d’utiliser une base PostgreSQL a cote de sa base SQL
   Srv, il
   faut modifier le code pour prendre en compte des SGBD differents tout en gardant la meme
   interface.
@@ -162,6 +162,9 @@ solution et une implémentation pour le faire.
 Get Started
 
 In cmd :
-php src\Database\MongoConnection.php
-php src\Database\SqlConnection.php
+php nosql\MongoDBCollection.php
+php MongoDBCreation.php
+
+
+
 
