@@ -150,6 +150,7 @@ SQL Billing, il est
 envisagé de répartir les données sur plusieurs bases situées sur des machines distinctes.
 Proposer une
 solution et une implémentation pour le faire.
+
 2.3. Livrables
 ✓ Bibliothèque de gestion des bases de données.
 ✓ Documentation exhaustive de votre bibliothèque.
@@ -159,11 +160,21 @@ solution et une implémentation pour le faire.
 -- Fin du document --
 
 
-Get Started
+##Get Started
 
 In cmd :
 php nosql\MongoDBCollection.php
 php MongoDBCreation.php
+
+##Technologies used
+PHP 8.4.4 (cli)
+SQL server
+MongoDB
+HTML5
+CSS3
+Composer
+Autoload
+(phpdoc et php unit à rajouter)
 
 
 

@@ -46,6 +46,15 @@ class BillingRepository
 
 
 //     Calculer les montants dus
+    public function calculateTotalBilled(int $contractId): float
+    {
+        $sql = 'SELECT SUM(amount) as total FROM Billing WHERE contract_id = ?';
+        $stmt = $this->conn->prepare($sql);
+        $result = $stmt->executeQuery([$contractId]);
+        $row = $result->fetchAssociative();
+
+        return isset($row['total']) ? (float)$row['total'] : 0.0;
+    }
 
 // Regrouper les paiements par client ou par période
 }
