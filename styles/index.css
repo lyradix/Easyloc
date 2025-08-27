@@ -17,6 +17,15 @@ h1 {
     color: #321010;
 }
 
+form{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: fit-content;
+    margin: 20px auto;
+}
+
 p {
     font-size: 16px;
     color: #af572e;
