@@ -44,39 +44,39 @@ class ContractRepository
                     FROM Contract 
                     WHERE ID = ?';
             
-            $result = $this->conn->executeQuery($sql, [$id]);
+            // Log the query and parameters for debugging
+            error_log("Contract query: " . $sql);
+            error_log("Contract ID: " . $id);
+            
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->executeQuery([$id]);
             $contract = $result->fetchAssociative();
             
+            if (!$contract) {
+                error_log("No contract found with ID: " . $id);
+            }
+
             return $contract ?: null;
         } catch (\Exception $e) {
+            error_log("Error in find method: " . $e->getMessage());
             throw $e;
         }
     }
 
     public function updateContract(int $id, array $data): void
     {
+        $data['id'] = $id;
         $sql = "UPDATE Contract SET 
-                VEHICLE_UID = ?, 
-                CUSTOMER_UID = ?, 
-                SIGN_DATETIME = ?, 
-                LOC_BEGIN_DATETIME = ?, 
-                LOC_END_DATETIME = ?, 
-                RETURNING_DATETIME = ?, 
-                PRICE = ?
-                WHERE id = ?";
-                
-        $params = [
-            $data['vehicle_uid'],
-            $data['customer_uid'],
-            $data['SignDate'],
-            $data['StartDate'],
-            $data['EndDate'],
-            $data['ReturnDate'],
-            $data['Price'],
-            $id
-        ];
-
-        $this->conn->executeQuery($sql, $params);
+                VEHICLE_UID = :vehicle_uid, 
+                CUSTOMER_UID = :customer_uid, 
+                SIGN_DATETIME = :SignDate, 
+                LOC_BEGIN_DATETIME = :StartDate, 
+                LOC_END_DATETIME = :EndDate, 
+                RETURNING_DATETIME = :ReturnDate, 
+                PRICE = :Price
+                WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->executeStatement($data);
     }
 
     /**
@@ -84,7 +84,13 @@ class ContractRepository
      */
     public function delete(int $id): void
     {
-        $sql = "DELETE FROM Contract WHERE ID = ?";
-        $this->conn->executeQuery($sql, [$id]);
+        try {
+            $sql = "DELETE FROM Contract WHERE ID = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->executeQuery([$id]);
+        } catch (\Exception $e) {
+            error_log("Error deleting contract: " . $e->getMessage());
+            throw $e;
+        }
     }
 }

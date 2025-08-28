@@ -3,20 +3,44 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use MongoDB\Client;
 use Dotenv\Dotenv;
+use MongoDB\Driver\Exception\ConnectionTimeoutException;
+use MongoDB\Driver\Exception\AuthenticationException;
+
+// Test the collection creation
+try {
+    $collection = new EasyLocMongoDBCollection();
+    echo "Successfully created collections and inserted sample data.\n";
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "\n";
+}
 
 class EasyLocMongoDBCollection {
     private $client;
     private $collection;
 
     public function __construct() {
+        // Load environment variables
         $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-        $dotenv->load();
+        try {
+            $dotenv->load();
+        } catch (Exception $e) {
+            echo "Warning: .env file not found. Using default settings.\n";
+        }
 
-        // Connect to MongoDB
-        $this->client = new Client("mongodb://localhost:27017");
+        // Get MongoDB connection details from environment variables
+        $mongoUri = $_ENV['MONGODB_URI'] ?? null;
+        if (!$mongoUri) {
+            throw new Exception("MongoDB URI not found in environment variables");
+        }
+
+        // Connect to MongoDB Atlas
+        $this->client = new Client($mongoUri);
         
-        // Insert Customer data
-        $this->collection = $this->client->EasyLoc->Customer;
+        // Test the connection
+        $this->client->listDatabases();
+        
+        // Get Customer collection
+        $this->collection = $this->client->EasylocDB->Customer;
         $this->collection->insertMany([
             [
                 'uid' => 1,
@@ -64,7 +88,7 @@ class EasyLocMongoDBCollection {
         echo("MongoDB connection established and Customer data inserted.\n");
 
         // Insert Vehicle data
-        $this->collection = $this->client->EasyLoc->Vehicle;
+        $this->collection = $this->client->EasylocDB->Vehicle;
         $this->collection->insertMany([
             [
                 'uid' => 1,

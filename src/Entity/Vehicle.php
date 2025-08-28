@@ -5,7 +5,7 @@
 // - informations (TEXT - Notes sur le véhicule, par exemple dégradations)
 // - km (INT - Kilométrage du véhicule)
 
-namespace App\Entity;
+namespace EasyLoc\Entity;
 
 class Vehicle
 {

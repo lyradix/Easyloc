@@ -1,11 +1,13 @@
 /* Import des styles de navigation */
 @import url('navigation.css');
+@import url('contract.css');
+
 
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #7adca4;
+    background-color: #ffffff;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -17,11 +19,11 @@ h1 {
     color: #321010;
 }
 
-form{
-    background-color: #ffffff;
+.form{
+    background-color: #8f5656;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: fit-content;
     margin: 20px auto;
 }
@@ -54,8 +56,100 @@ a:hover {
 }
 
 table {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
     background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #321010;
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-view, .btn-edit {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-view {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-new {
+    background-color: #321010;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+}
+
+.actions {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    color: white;
+}
+
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
 }

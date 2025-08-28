@@ -1,7 +1,7 @@
 <?php
 
-use App\Entity\Vehicle;
-namespace App\Repository;
+use EasyLoc\Entity\Vehicle;
+namespace EasyLoc\Repository;
 use Doctrine\DBAL\Connection;
 
 class VehicleRepository

@@ -11,10 +11,6 @@
 <h1>Welcome to EasyLoc</h1>
 <p>This is the home page.</p>
 
-<!-- Navigation individuelle -->
-<a href="contract_list.php">Go to Contracts</a>
-
-<!-- Ou, si vous préférez une barre de navigation -->
 <div class="nav-container">
     <a href="contract_list.php">Contrats</a>
     <a href="customer_profile.php">Clients</a>

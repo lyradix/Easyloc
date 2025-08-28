@@ -6,7 +6,7 @@
 // - address (CHAR(255) - Adresse complète)
 // - permit_number (CHAR(255) -numéro de permis)
 
-namespace App\Entity;
+namespace EasyLoc\Entity;
 class Customer
 {
     private string $uid;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace EasyLoc\Repository;
 
 use App\Entiry\Billing;
 use Doctrine\DBAL\Connection;

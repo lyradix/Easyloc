@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace EasyLoc\Entity;
 
 class Billing
 {

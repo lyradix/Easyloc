@@ -163,6 +163,12 @@ solution et une implémentation pour le faire.
 ##Get Started
 
 In cmd :
+
+composer dump-autoload
+
+php sql/Database/create_tables.php
+php load_sample_data.php
+
 php nosql\MongoDBCollection.php
 php MongoDBCreation.php
 

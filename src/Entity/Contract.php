@@ -1,25 +1,16 @@
 <?php
 
-namespace App\Entity;
+namespace EasyLoc\Entity;
 
-class contract
+class Contract
 {
-//     - id (INT - clé unique du contrat)
-// - vehicle_uid (CHAR(255) - uid du Vehicle associé au contrat)
-// - customer_uid (CHAR(255) - uid du Customer associé au contrat)
-// - sign_datetime (DATETIME - Date + heure de signature du contrat)
-// - loc_begin_datetime (DATETIME - Date + heure de début de la location)
-// - loc_end_ datetime (DATETIME - Date + heure de fin de la location)
-// - returning_datetime (DATETIME - Date + heure de rendu du véhicule)
-// - price (MONEY - Prix facturé pour le contrat)
-
     private int $id;
     private string $vehicleUid;
     private string $customerUid;
-    private datetime $signDatetime;
-    private datetime $locBeginDatetime;
-    private datetime $locEndDatetime;
-    private datetime $returningDatetime;
+    private \DateTime $signDatetime;
+    private \DateTime $locBeginDatetime;
+    private \DateTime $locEndDatetime;
+    private \DateTime $returningDatetime;
     private float $price;
 
     //getters
@@ -33,31 +24,62 @@ class contract
         return $this->vehicleUid;
     }
 
-    public function getCustomerUid(): int
+    public function getCustomerUid(): string
     {
         return $this->customerUid;
     }
 
-    public function getLocBeginDatetime():datetime
+    public function getLocBeginDatetime(): \DateTime
     {
         return $this->locBeginDatetime;
     }
 
-      public function getLocEndDatetime():datetime
+    public function getLocEndDatetime(): \DateTime
     {
         return $this->locEndDatetime;
     }
 
-      public function geRerreturningDatetime():datetime
+    public function getReturningDatetime(): \DateTime
     {
         return $this->returningDatetime;
     }
 
-       public function getPrice():float
+    public function getPrice(): float
     {
         return $this->price;
     }
 
     //setters
-    public function set
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+    public function setVehicleUid(string $vehicleUid)
+    {
+        $this->vehicleUid = $vehicleUid;
+    }
+    public function setCustomerUid(string $customerUid)
+    {
+        $this->customerUid = $customerUid;
+    }
+    public function setSignDatetime(\DateTime $signDatetime)
+    {
+        $this->signDatetime = $signDatetime;
+    }
+    public function setLocBeginDatetime(\DateTime $locBeginDatetime)
+    {
+        $this->locBeginDatetime = $locBeginDatetime;
+    }
+    public function setLocEndDatetime(\DateTime $locEndDatetime)
+    {
+        $this->locEndDatetime = $locEndDatetime;
+    }
+    public function setReturningDatetime(\DateTime $returningDatetime)
+    {
+        $this->returningDatetime = $returningDatetime;
+    }
+    public function setPrice(float $price)
+    {
+        $this->price = $price;
+    }
 }

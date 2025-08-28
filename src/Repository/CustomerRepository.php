@@ -2,7 +2,7 @@
 
 // faire des requetes nosql sur mongoDB pour recuperer les customers
 
-namespace App\Repository;
+namespace EasyLoc\Repository;
 use Doctrine\DBAL\Connection;
 class CustomerRepository
 {
